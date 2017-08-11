@@ -4,6 +4,6 @@
 #include "Bicicleta.h"
 
 class BicicletaMontana: public Bicicleta{
-}
+};
 
 #endif

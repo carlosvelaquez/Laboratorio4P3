@@ -1,25 +1,25 @@
 #include "Bicicleta.h"
 
-Bicicleta::setPrecio(float nPrecio){
+void Bicicleta::setPrecio(float nPrecio){
 	precio = nPrecio;
 }
 
-Bicicleta::setPeso(float nPeso){
+void Bicicleta::setPeso(float nPeso){
 	peso = nPeso;
 }
 
-Bicicleta::setTipoLlantas(Llanta nLlanta){
+void Bicicleta::setTipoLlantas(Llanta nLlanta){
 	tipoLlantas = nLlanta;
 }
 
-Bicicleta::getPrecio(){
+float Bicicleta::getPrecio(){
 	return precio;
 }
 
-Bicicleta::getPeso(){
+float Bicicleta::getPeso(){
 	return peso;
 }
 
-Bicicleta::getTipoLlantas(){
+Llanta Bicicleta::getTipoLlantas(){
 	return tipoLlantas;
 }

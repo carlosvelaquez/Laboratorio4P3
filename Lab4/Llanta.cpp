@@ -1,25 +1,25 @@
-#include "Bicicleta.cpp"
+#include "Llanta.h"
 
-Llanta::getMaterial(){
+string Llanta::getMaterial(){
 	return material;
 }
 
-Llanta::setMaterial(string nMaterial){
+void Llanta::setMaterial(string nMaterial){
 	material = nMaterial;
 }
 
-Llanta::getColor(){
+string Llanta::getColor(){
 	return color;
 }
 
-Llanta::setColor(string nColor){
+void Llanta::setColor(string nColor){
 	color = nColor;
 }
 
-Llanta::getPrecio(){
+float Llanta::getPrecio(){
 	return precio;
 }
 
-Llanta::setPrecio(float nPrecio){
+void Llanta::setPrecio(float nPrecio){
 	precio = nPrecio;
 }

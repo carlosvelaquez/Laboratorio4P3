@@ -1,5 +1,5 @@
-#ifndef BICLETA_H
-#define BICLETA_H
+#ifndef BICICLETA_H
+#define BICICLETA_H
 
 #include "Llanta.h"
 
