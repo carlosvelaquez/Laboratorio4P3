@@ -151,16 +151,18 @@ int main(){
 										  if(montanaLleno){
 											  cout << endl << "[ERROR] El camión seleccionado ya está lleno." << endl << endl;
 											  break;
-										  }
+										  }else{
 
 										  BicicletaMontana bm = crearBicicletaMontana();
 										  llenarCamionMontana(camionMontana, contBicicletasMontN, contBicicletasMontM, bm, tamanoMontanaN, tamanoMontanaM);
 										  montanaLleno = true;
 										  continuar = true;}
+									  }
 									  break;
 							   case 2:{
 										  if(carreraLleno){
 											  cout << endl << "[ERROR] El camión seleccionado ya está lleno." << endl;
+											  break;
 										  }
 										  BicicletaCarrera bc = crearBicicletaCarrera();
 
