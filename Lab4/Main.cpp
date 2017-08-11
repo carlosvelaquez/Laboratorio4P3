@@ -10,6 +10,9 @@ BicicletaCarrera crearBicicletaCarrera();
 BicicletaMontana crearBicicletaMontana();
 void llenarCamionMontana(BicicletaMontana**, int ,int, BicicletaMontana, int, int);
 void llenarCamionCarrera(BicicletaCarrera**, int ,int, BicicletaCarrera, int, int);
+float calcularValorMontana(BicicletaMontana**, int, int);
+float calcularValorCarrera(BicicletaCarrera**, int, int);
+
 int menu();
 
 int main(){
@@ -194,7 +197,7 @@ int main(){
 			case 3:{
 					   continuar = false;
 					   tipo = -1;
-					   float valor = 0;
+					   float valorTotal = 0;
 
 					   do{
 						   cout << "1. Camión de Bicicletas de Montaña" << endl << "2. Camión de Bicicletas de Carrera"
@@ -202,14 +205,25 @@ int main(){
 						   cin >> tipo;
 
 						   switch(tipo){
-							   case 1:
-								   //valorTotal = calcularValor(camionMontana);
-								   break;
+							   case 1:{
+										  valorTotal = calcularValorMontana(camionMontana, tamanoMontanaN, tamanoMontanaM);
+										  continuar = true;}
+									  break;
+							   case 2:{
+										  valorTotal = calcularValorCarrera(camionCarrera, tamanoCarreraN, tamanoCarreraM);
+										  continuar = true;}
+									  break;
 							   default:
-								   break;
+									  cout << "Opción inválida, por favor intente de nuevo." << endl;
+									  break;
 						   }
 
 					   }while(!continuar);
+					   if(valorTotal == 0){
+							cout << "El camión seleccionado está vacío." << endl;
+							break;
+					   }
+					   cout << "El valor total del camión seleccionado es de: " << valorTotal << endl;
 				   }
 				   break;
 			case 4:{
@@ -366,6 +380,32 @@ void llenarCamionCarrera(BicicletaCarrera** camionCarrera, int contBicicletasCar
 		}
 	}
 
+}
+
+float calcularValorMontana(BicicletaMontana** b, int n, int m){
+	float valor = 0;
+
+	for(int i = 0; i < n; i++){
+		for(int j = 0; j < m; j++){
+			valor += b[i][j].getPrecio();
+			valor += b[i][j].getTipoLlantas().getPrecio();
+		}
+	}
+
+	return valor;
+}
+
+float calcularValorCarrera(BicicletaCarrera** b, int n, int m){
+	float valor = 0;
+
+	for(int i = 0; i < n; i++){
+		for(int j = 0; j < m; j++){
+			valor += b[i][j].getPrecio();
+			valor += b[i][j].getTipoLlantas().getPrecio();
+		}
+	}
+
+	return valor;
 }
 
 
