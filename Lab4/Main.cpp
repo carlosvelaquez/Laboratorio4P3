@@ -8,6 +8,8 @@ using namespace std;
 
 BicicletaCarrera crearBicicletaCarrera();
 BicicletaMontana crearBicicletaMontana();
+void llenarCamionMontana(BicicletaMontana**, int ,int, BicicletaMontana, int, int);
+void llenarCamionCarrera(BicicletaCarrera**, int ,int, BicicletaCarrera, int, int);
 int menu();
 
 int main(){
@@ -141,6 +143,34 @@ int main(){
 							   << endl << endl << "¿De que tipo serán las nuevas bicicletas? - ";
 						   cin >> tipo;
 
+						   switch(tipo){
+							   case 1:{
+										  if(montanaLleno){
+											  cout << endl << "[ERROR] El camión seleccionado ya está lleno." << endl << endl;
+											  break;
+										  }
+
+										  BicicletaMontana bm = crearBicicletaMontana();
+										  llenarCamionMontana(camionMontana, contBicicletasMontN, contBicicletasMontM, bm, tamanoMontanaN, tamanoMontanaM);
+										  montanaLleno = true;
+										  continuar = true;}
+									  break;
+							   case 2:{
+										  if(carreraLleno){
+											  cout << endl << "[ERROR] El camión seleccionado ya está lleno." << endl;
+										  }
+										  BicicletaCarrera bc = crearBicicletaCarrera();
+
+										  llenarCamionCarrera(camionCarrera, contBicicletasCarrN, contBicicletasCarrM, bc, tamanoCarreraN, tamanoCarreraM);
+										  carreraLleno = true;
+										  continuar = true;}
+									  break;
+							   default:{
+										   cout << endl << "Tipo de bicicleta inválido" << endl << endl;}
+									   break;
+						   }
+
+
 						   /*switch(tipo){
 							 case 1:
 							 BicicletaMontana bm = crearBicicletaMontana();
@@ -159,7 +189,28 @@ int main(){
 							 }*/
 
 					   }while(!continuar);
-					   cout << "Camión llenado exitosamente." << endl;}
+					   cout << endl << "Camión llenado exitosamente." << endl;}
+				   break;
+			case 3:{
+					   continuar = false;
+					   tipo = -1;
+					   float valor = 0;
+
+					   do{
+						   cout << "1. Camión de Bicicletas de Montaña" << endl << "2. Camión de Bicicletas de Carrera"
+							   << endl << endl << "¿De que camión desea calcular el valor? - ";
+						   cin >> tipo;
+
+						   switch(tipo){
+							   case 1:
+								   //valorTotal = calcularValor(camionMontana);
+								   break;
+							   default:
+								   break;
+						   }
+
+					   }while(!continuar);
+				   }
 				   break;
 			case 4:{
 					   cout << "Saliendo..." << endl;
@@ -257,6 +308,7 @@ BicicletaCarrera crearBicicletaCarrera(){
 
 	string material;
 	string color;
+
 	float precioL;
 
 	cout << "Material: ";
@@ -274,6 +326,46 @@ BicicletaCarrera crearBicicletaCarrera(){
 
 	b.setTipoLlantas(l);
 	return b;
+}
+
+void llenarCamionMontana(BicicletaMontana** camionCarrera, int contBicicletasCarrN, int contBicicletasCarrM, BicicletaMontana bc, int tamanoMontanaN, int tamanoMontanaM){
+	bool lleno = false;
+
+	while(!lleno){
+		camionCarrera[contBicicletasCarrN][contBicicletasCarrM] = bc;
+		contBicicletasCarrN++;
+
+
+		if(contBicicletasCarrN == tamanoMontanaN){
+			contBicicletasCarrN = 0;
+			contBicicletasCarrM ++;
+		}
+
+		if(contBicicletasCarrM == tamanoMontanaM){
+			lleno = true;
+		}
+	}
+
+}
+
+void llenarCamionCarrera(BicicletaCarrera** camionCarrera, int contBicicletasCarrN, int contBicicletasCarrM, BicicletaCarrera bc, int tamanoMontanaN, int tamanoMontanaM){
+	bool lleno = false;
+
+	while(!lleno){
+		camionCarrera[contBicicletasCarrN][contBicicletasCarrM] = bc;
+		contBicicletasCarrN++;
+
+
+		if(contBicicletasCarrN == tamanoMontanaN){
+			contBicicletasCarrN = 0;
+			contBicicletasCarrM ++;
+		}
+
+		if(contBicicletasCarrM == tamanoMontanaM){
+			lleno = true;
+		}
+	}
+
 }
 
 
