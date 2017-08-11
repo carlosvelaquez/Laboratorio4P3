@@ -175,24 +175,6 @@ int main(){
 									   break;
 						   }
 
-
-						   /*switch(tipo){
-							 case 1:
-							 BicicletaMontana bm = crearBicicletaMontana();
-							 camionMontana[contBicicletasM] = bm;
-							 continuar = true;
-							 break;
-							 case 2:
-							 BicicletaCarrera bc = crearBicicletaCarrera();
-							 camionCarrera[contBicicletasC] = bc;
-							 contBicicletasC++;
-							 continuar = true;
-							 break;
-							 default:
-							 cout << endl << "Tipo de bicicleta inválido" << endl << endl;
-							 break;
-							 }*/
-
 					   }while(!continuar);
 					   cout << endl << "Camión llenado exitosamente." << endl;}
 				   break;
