@@ -8,8 +8,10 @@ using namespace std;
 
 BicicletaCarrera crearBicicletaCarrera();
 BicicletaMontana crearBicicletaMontana();
+
 void llenarCamionMontana(BicicletaMontana**, int ,int, BicicletaMontana, int, int);
 void llenarCamionCarrera(BicicletaCarrera**, int ,int, BicicletaCarrera, int, int);
+
 float calcularValorMontana(BicicletaMontana**, int, int);
 float calcularValorCarrera(BicicletaCarrera**, int, int);
 
